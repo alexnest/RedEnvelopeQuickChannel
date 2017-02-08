@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>红包节快递通道</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div id="app" class="container">
+        <ul class="nav nav-tabs">
+            <li v-bind:class="{'active':tabFocus=='A'}"><a href="javascript:;" v-on:click="changeTabFocus('A')" data-toggle="tab">100红包福袋</a></li>
+            <li v-bind:class="{'active':tabFocus=='B'}"><a href="javascript:;" v-on:click="changeTabFocus('B')" data-toggle="tab">50红包福袋</a></li>
+            <li v-bind:class="{'active':tabFocus=='C'}"><a href="javascript:;" v-on:click="changeTabFocus('C')" data-toggle="tab">20红包福袋</a></li>
+            <li v-bind:class="{'active':tabFocus=='D'}"><a href="javascript:;" v-on:click="changeTabFocus('D')" data-toggle="tab">5红包福袋</a></li>
+        </ul>
+        <div class="tab-content">
+            <!-- start A福袋 -->
+            <div id="aPackageTab" class="tab-pane fade in" v-bind:class="{'active':tabFocus=='A'}">
+                <table class="table strip">
+                    <thead>
+                    <tr>
+                        <th>飞享老板</th>
+                        <th>已拆红包</th>
+                        <th>抢红包</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="aPackage in aPackageCurrentPageList">
+                        <td>{{aPackage.packageId}}</td>
+                        <td>{{aPackage.openCount}}</td>
+                        <td><a href="">抢红包</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end A福袋 -->
+            <!-- start B福袋 -->
+            <div id="bPackageTab" class="tab-pane fade in"  v-bind:class="{'active':tabFocus=='B'}">
+                <table class="table strip">
+                    <thead>
+                    <tr>
+                        <th>飞享老板</th>
+                        <th>已拆红包</th>
+                        <th>抢红包</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="bPackage in bPackageCurrentPageList">
+                        <td>{{bPackage.bossMobile}}</td>
+                        <td>{{bPackage.openCount}}</td>
+                        <td><a href="">抢红包</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end B福袋 -->
+            <!-- start C福袋 -->
+            <div id="cPackageTab" class="tab-pane fade in"  v-bind:class="{'active':tabFocus=='C'}">
+                <table class="table strip">
+                    <thead>
+                    <tr>
+                        <th>飞享老板</th>
+                        <th>已拆红包</th>
+                        <th>抢红包</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="cPackage in cPackageCurrentPageList">
+                        <td>{{cPackage.bossMobile}}</td>
+                        <td>{{cPackage.openCount}}</td>
+                        <td><a href="">抢红包</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end C福袋 -->
+            <!-- start D福袋 -->
+            <div id="dPackageTab" class="tab-pane fade in"  v-bind:class="{'active':tabFocus=='D'}">
+                <table class="table strip">
+                    <thead>
+                    <tr>
+                        <th>飞享老板</th>
+                        <th>已拆红包</th>
+                        <th>抢红包</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="dPackage in dPackageCurrentPageList">
+                        <td>{{dPackage.bossMobile}}</td>
+                        <td>{{dPackage.openCount}}</td>
+                        <td><a href="">抢红包</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- end D福袋 -->
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default" v-on:click="getPreviousPageDisplay()">上一页</button>
+                <button type="button" class="btn btn-default" v-on:click="getNextPageDisplay()">下一页</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://cdn.bootcss.com/vue/2.1.10/vue.min.js"></script>
+    <script src="http://cdn.bootcss.com/vue-resource/1.1.0/vue-resource.min.js"></script>
+    <script src="js/redEnvelop.js"></script>
+</body>
+</html>
